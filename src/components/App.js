@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
-import WeatherC from "./WeatherC";
+
+import React, { useState,useEffect } from "react";
+import './../styles/App.css';
+import WeatherDisplay from "./WeatherDisplay";
 
 const App = () => {
-  const [weather, setWeather] = useState({ temperature: 0, conditions: "" });
+  const [weatherInput, setWeatherInput] = useState({temperature: 0, conditions: ""});
 
-  useEffect(() => {
-    setWeather({ temperature: 25, conditions: "Sunny" });
-  }, []);
-
+  useEffect(()=>{
+    setWeatherInput({temperature: 25, conditions: "Sunny"});
+    
+  },[]);
   return (
-    <div>
-      {/* Do not remove the main div */}
-      <WeatherC weather={weather} />
-    </div>
-  );
-};
 
-export default App;
+    <div>
+       <h1>Weather Application</h1>
+        <WeatherDisplay weatherInput={weatherInput} />
+    </div>
+  )
+}
+
+export default App
